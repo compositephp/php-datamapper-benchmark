@@ -1,0 +1,4 @@
+.idea
+docker/mysql
+vendor/
+composer.lock

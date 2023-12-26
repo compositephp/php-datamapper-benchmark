@@ -54,6 +54,8 @@ $orm = new ORM\ORM(
 );
 $entityManager = new ORM\EntityManager($orm);
 $repository = $orm->getRepository(User::class);
+// Complete ORM configuration
+$orm->prepareServices();
 /** --------------------------- SETUP END --------------------------- */
 
 $startTime = microtime(true);
@@ -69,6 +71,8 @@ for ($i = 0; $i < $_ENV['REPEATS']; $i++) {
     $entityManager->persist($newUser);
     $entityManager->run();
 
+    // Clean entity cache before next action
+    $orm->getHeap()->clean();
     //Read
     $foundUser = $repository->findByPK($newUser->getId());
 

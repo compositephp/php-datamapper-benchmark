@@ -41,7 +41,7 @@ The following table summarizes the performance of each ORM in terms of execution
 | ORM            | Time (seconds) | Memory Kb | Memory Peak Mb |
 |----------------|----------------|-----------|----------------|
 | Laravel ORM    | 61.51          | 4950.91   | 8.063          |
-| Cycle ORM      | 46.94          | 428.91    | 6.990          |
+| Cycle ORM      | 44.32          | 288.15    | 7.007          |
 | Doctrine ORM   | 37.45          | 870.24    | 6.408          |
 | CompositePHP   | 24.71          | 143.46    | 2.217          |
 

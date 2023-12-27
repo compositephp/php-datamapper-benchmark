@@ -2,23 +2,14 @@
 
 namespace App\Cycle;
 
-use Cycle\Annotated\Annotation\Column;
-use Cycle\Annotated\Annotation\Entity;
-
-#[Entity(table: 'Users', database: 'default')]
 class User
 {
-    #[Column(type: 'primary')]
     private int $id;
 
     public function __construct(
-        #[Column(type: 'string')]
         private string $name,
-        #[Column(type: 'integer')]
         private int $age,
-        #[Column(type: 'float')]
         private float $microtime,
-        #[Column(type: 'timestamp')]
         private \DateTimeImmutable $created_at = new \DateTimeImmutable(),
     ) {}
 

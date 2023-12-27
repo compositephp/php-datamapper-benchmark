@@ -1,17 +1,21 @@
-# PHP ORM Benchmark
+# PHP DataMappers Benchmark
 
 ## Overview
-This repository contains benchmarks for some of the most popular PHP ORMs, used as a reference for performance optimizations 
-in my personal project [compositephp/db](https://github.com/compositephp/db). 
+This repository contains benchmarks for some of the most popular PHP DataMapper's, used as a reference for performance 
+optimizations in my personal project [compositephp/db](https://github.com/compositephp/db). 
 
-The ORMs benchmarked include:
-- [Doctrine ORM](https://www.doctrine-project.org/)
-- [Laravel ORM](https://laravel.com/docs/8.x/eloquent)
+The projects benchmarked include:
+- [Doctrine](https://www.doctrine-project.org/)
+- [Laravel Eloquent](https://laravel.com/docs/8.x/eloquent)
 - [Cycle ORM](https://cycle-orm.dev/)
-- [CompositePHP DB](https://github.com/compositephp/db/)
+- [Composite DB](https://github.com/compositephp/db/)
 
 ## Methodology
-The benchmark executes 10 000 CRUD (Create, Read, Update, Delete) operations to assess the performance of each ORM. Operations include:
+* The benchmark executes 10 000 CRUD (Create, Read, Update, Delete) operations to assess the performance.
+* The benchmark tests focus exclusively on the 'DataMapper' component of each project, employing simple queries that do 
+not involve relationships, foreign keys, or joins.
+
+Operations include:
 1. Creating a new record in the database.
 2. Reading the record by primary key.
 3. Updating one field for the found record.
@@ -31,19 +35,16 @@ CREATE TABLE IF NOT EXISTS Users
 );
 ```
 
-### Hardware
-MacBook Pro with Apple M2 Pro Chip and 12‑Core CPU.
-
 ## Results
 
-The following table summarizes the performance of each ORM in terms of execution time, memory usage, and peak memory usage:
+### MacBook Pro with Apple M2 Pro Chip and 12‑Core CPU:
 
-| ORM            | Time (seconds) | Memory Kb | Memory Peak Mb |
-|----------------|----------------|-----------|----------------|
-| Laravel ORM    | 61.51          | 4950.91   | 8.063          |
-| Cycle ORM      | 44.32          | 288.15    | 7.007          |
-| Doctrine ORM   | 37.45          | 870.24    | 6.408          |
-| CompositePHP   | 24.71          | 143.46    | 2.217          |
+| Project          | Time (seconds) | Memory Kb | Memory Peak Mb |
+|------------------|----------------|-----------|----------------|
+| Laravel Eloquent | 61.51          | 4950.91   | 8.063          |
+| Cycle ORM        | 44.32          | 288.15    | 7.007          |
+| Doctrine         | 37.45          | 870.24    | 6.408          |
+| CompositeDB      | 24.71          | 143.46    | 2.217          |
 
 ## Running Locally
 
@@ -57,11 +58,12 @@ The following table summarizes the performance of each ORM in terms of execution
 1. Clone or download this repository
 2. Run `composer update`
 3. Execute `docker-compose up`
-4. Run benchmarks for each ORM separately:
+4. Run benchmarks for each DataMapper separately:
    * `php src/test-laravel.php`
    * `php src/test-cycle.php`
    * `php src/test-doctrine.php`
    * `php src/test-composite.php`
 
 ## Note
-This is a synthetic benchmark focused on speed and memory consumption and does not compare the feature list of the ORMs. Feel free to note any problems, inaccuracies, or shortcomings in using these ORMs and make a pull request to fix them.
+This is a synthetic benchmark focused on speed and memory consumption and does not compare the feature list of the projects. 
+Feel free to note any problems, inaccuracies, or shortcomings in using these projects and make a pull request to fix them.

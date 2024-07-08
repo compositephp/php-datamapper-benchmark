@@ -2,7 +2,8 @@
     "name": "compositephp/performance",
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "PHPFUIORM\\": "src/PHPFUIORM/"
         }
     },
     "authors": [
@@ -20,6 +21,7 @@
         "doctrine/orm": "2.17.2",
         "illuminate/database": "10.38.2",
         "vlucas/phpdotenv": "5.6.0",
-        "symfony/cache": "7.0.0"
+        "symfony/cache": "7.0.0",
+        "phpfui/orm": "^1.7"
     }
 }

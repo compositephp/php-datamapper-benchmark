@@ -1,6 +1,6 @@
 <?php
 
-namespace PHPFUIORM\Table;
+namespace App\PHPFUIORM\Table;
 
 class Users extends \PHPFUI\ORM\Table
 	{

@@ -3,9 +3,9 @@
 include 'init.php';
 
 \PHPFUI\ORM::$namespaceRoot = __DIR__ . '/src';
-\PHPFUI\ORM::$recordNamespace = 'PHPFUIORM\\Record';
-\PHPFUI\ORM::$tableNamespace = 'PHPFUIORM\\Table';
-\PHPFUI\ORM::$migrationNamespace = 'PHPFUIORM\\Migration';
+\PHPFUI\ORM::$recordNamespace = 'App\\PHPFUIORM\\Record';
+\PHPFUI\ORM::$tableNamespace = 'App\\PHPFUIORM\\Table';
+\PHPFUI\ORM::$migrationNamespace = 'App\\PHPFUIORM\\Migration';
 \PHPFUI\ORM::$idSuffix = 'id';
 
 $pdo = new \PHPFUI\ORM\PDOInstance("mysql:host={$_ENV['MYSQL_HOST']};dbname={$_ENV['MYSQL_DB_NAME']};port={$_ENV['MYSQL_HOST_PORT']};charset=utf8mb4;collation=utf8mb4_general_ci", $_ENV['MYSQL_USERNAME'], $_ENV['MYSQL_PASSWORD']);
@@ -19,8 +19,8 @@ $startMemory = memory_get_usage();
 
 for ($i = 0; $i < $_ENV['REPEATS']; $i++) {
     //Create
-		/** @var \PHPFUIORM\Record\Users $newUser */
-    $newUser = new \PHPFUIORM\Record\Users();
+		/** @var \App\PHPFUIORM\Record\Users $newUser */
+    $newUser = new \App\PHPFUIORM\Record\Users();
 		$newUser->name = uniqid();
 		$newUser->age = mt_rand(1, 100);
 		$newUser->microtime = microtime(true);
@@ -28,8 +28,8 @@ for ($i = 0; $i < $_ENV['REPEATS']; $i++) {
 		$id = $newUser->insert(0);
 
     //Read
-		/** @var \PHPFUIORM\Record\Users $foundUser */
-    $foundUser = new \PHPFUIORM\Record\Users($id);
+		/** @var \App\PHPFUIORM\Record\Users $foundUser */
+    $foundUser = new \App\PHPFUIORM\Record\Users($id);
 
     //Update
     $foundUser->name = $foundUser->name . '_changed';

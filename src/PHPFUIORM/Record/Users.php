@@ -1,7 +1,7 @@
 <?php
 
-namespace PHPFUIORM\Record;
+namespace App\PHPFUIORM\Record;
 
-class Users extends \PHPFUIORM\Record\Definition\Users
+class Users extends \App\PHPFUIORM\Record\Definition\Users
 	{
 	}

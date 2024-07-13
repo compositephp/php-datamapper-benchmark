@@ -9,6 +9,7 @@ The projects benchmarked include:
 - [Laravel Eloquent](https://laravel.com/docs/8.x/eloquent)
 - [Cycle ORM](https://cycle-orm.dev/)
 - [Composite DB](https://github.com/compositephp/db/)
+- [PHPFUI ORM](https://github.com/phpfui/ORM)
 
 ## Methodology
 * The benchmark executes 10 000 CRUD (Create, Read, Update, Delete) operations to assess the performance.
@@ -45,6 +46,7 @@ CREATE TABLE IF NOT EXISTS Users
 | Cycle ORM        | 44.32          | 288.15    | 7.007          |
 | Doctrine         | 37.45          | 870.24    | 6.408          |
 | CompositeDB      | 24.71          | 143.46    | 2.217          |
+| PHPFUI ORM       | 20.43          | 109.37    | 2.196          |
 
 ## Running Locally
 
@@ -63,6 +65,7 @@ CREATE TABLE IF NOT EXISTS Users
    * `php src/test-cycle.php`
    * `php src/test-doctrine.php`
    * `php src/test-composite.php`
+   * `php src/test-PHPFUI.php`
 
 ## Note
 This is a synthetic benchmark focused on speed and memory consumption and does not compare the feature list of the projects. 

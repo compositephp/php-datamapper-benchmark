@@ -13,14 +13,14 @@
     ],
     "require": {
         "ext-pdo": "*",
-        "compositephp/db": "0.4.2",
-        "cycle/orm": "2.6",
-        "cycle/annotated": "3.4",
-        "cycle/entity-behavior": "1.2",
-        "doctrine/orm": "2.17.2",
-        "illuminate/database": "10.38.2",
-        "vlucas/phpdotenv": "5.6.0",
-        "symfony/cache": "7.0.0",
-        "phpfui/orm": "^1.7"
+        "compositephp/db": "^0.5",
+        "cycle/orm": "^2.10",
+        "cycle/annotated": "^4.3",
+        "cycle/entity-behavior": "^1.2",
+        "doctrine/orm": "^3.0",
+        "illuminate/database": "^12.0",
+        "vlucas/phpdotenv": "^5.6.0",
+        "symfony/cache": "^7.0",
+        "phpfui/orm": "^2.0"
     }
 }

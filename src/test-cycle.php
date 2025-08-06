@@ -31,11 +31,13 @@ $dbal = new Database\DatabaseManager(
 
 $finder = (new \Symfony\Component\Finder\Finder())->files()->in([__DIR__ . '/Cycle']); // __DIR__ here is folder with entities
 $classLocator = new \Spiral\Tokenizer\ClassLocator($finder);
+$tokenizer = new \Cycle\Annotated\Locator\TokenizerEmbeddingLocator($classLocator);
+$entityLocator = new \Cycle\Annotated\Locator\TokenizerEntityLocator($classLocator);
 
 $schema = (new Schema\Compiler())->compile(new Schema\Registry($dbal), [
     new Schema\Generator\ResetTables(),             // re-declared table schemas (remove columns)
-    new Annotated\Embeddings($classLocator),        // register embeddable entities
-    new Annotated\Entities($classLocator),          // register annotated entities
+    new Annotated\Embeddings($tokenizer),        // register embeddable entities
+    new Annotated\Entities($entityLocator),          // register annotated entities
     new Annotated\TableInheritance(),               // register STI/JTI
     new Annotated\MergeColumns(),                   // add @Table column declarations
     new Schema\Generator\GenerateRelations(),       // generate entity relations

@@ -15,18 +15,27 @@ abstract class Users extends \PHPFUI\ORM\Record
 	{
 	protected static bool $autoIncrement = true;
 
-	/** @var array<string, array<mixed>> */
-	protected static array $fields = [
-		// MYSQL_TYPE, PHP_TYPE, LENGTH, ALLOWS_NULL, DEFAULT
-		'age' => ['int', 'int', 0, false, ],
-		'created_at' => ['timestamp', 'string', 20, false, NULL, ],
-		'id' => ['int', 'int', 0, false, ],
-		'microtime' => ['float', 'float', 0, false, ],
-		'name' => ['varchar(255)', 'string', 255, false, ],
-	];
+	/** @var array<string, \PHPFUI\ORM\FieldDefinition> */
+	protected static array $fields = [];
 
 	/** @var array<string> */
 	protected static array $primaryKeys = ['id', ];
 
 	protected static string $table = 'users';
+
+	public function initFieldDefinitions() : static
+		{
+		if (! \count(static::$fields))
+			{
+			static::$fields = [
+				'age' => new \PHPFUI\ORM\FieldDefinition('int', 'int', 0, false, ),
+				'created_at' => new \PHPFUI\ORM\FieldDefinition('timestamp', 'string', 20, false, NULL, ),
+				'id' => new \PHPFUI\ORM\FieldDefinition('int', 'int', 0, false, ),
+				'microtime' => new \PHPFUI\ORM\FieldDefinition('float', 'float', 0, false, ),
+				'name' => new \PHPFUI\ORM\FieldDefinition('varchar(255)', 'string', 255, false, ),
+			];
+			}
+
+		return $this;
+		}
 	}
